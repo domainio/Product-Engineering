@@ -67,8 +67,8 @@ const LoginPage = () => {
     }
   };
   
-  return (
-    <div style={{ flexDirection: 'row', display: 'flex' }}>
+  const renderSignIn = () => {
+    return (
       <div style={{ flex: 1 }}>
         <h1 style={{ color: 'lightskyblue' }}>Sign In</h1>
         <form className={classes.root} noValidate>
@@ -116,6 +116,11 @@ const LoginPage = () => {
           }
         </form>
       </div>
+    )
+  };
+  
+  const renderSignUp = () => {
+    return (
       <div style={{ flex: 1 }}>
         <h1 style={{ color: 'lightskyblue' }}>Sign Up</h1>
         <form className={classes.root} noValidate>
@@ -163,6 +168,13 @@ const LoginPage = () => {
           }
         </form>
       </div>
+    )
+  };
+  
+  return (
+    <div style={{ flexDirection: 'row', display: 'flex' }}>
+      {renderSignIn()}
+      {renderSignUp()}
     </div>
   );
 };
