@@ -15,7 +15,7 @@ const LangSelect = ({ onChange, lang }) => {
           id="demo-simple-select"
           value={lang}
           onChange={(e) => {
-            // AnalyticsProvider.logEvent(AnalyticsEvents.SelectLang, { lang });
+            AnalyticsProvider.logEvent(AnalyticsEvents.SelectLang, { lang });
             onChange(e.target.value)
           }}
         >
@@ -25,7 +25,7 @@ const LangSelect = ({ onChange, lang }) => {
       </div>
     </div>
   )
-}
+};
 
 const Styles = {
   container: {
@@ -48,6 +48,6 @@ const Styles = {
     borderRadius: 4,
     border: '1px double #ced4da'
   }
-}
+};
 
 export default LangSelect;

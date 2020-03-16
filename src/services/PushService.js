@@ -1,11 +1,10 @@
 import Firebase from '../infra/Firebase';
-import { WebPushCertificates } from '../consts/FirebaseConfig';
 
 let _messaging;
 
-const askForPermissioToReceiveNotifications = async () => {
+const askForPermissionToReceiveNotifications = async () => {
   try {
-    console.log('askForPermissioToReceiveNotifications')
+    console.log('askForPermissionToReceiveNotifications')
     _messaging = Firebase.messaging();
     await _messaging.requestPermission();
     console.log('get token');
@@ -35,12 +34,11 @@ const askForPermissioToReceiveNotifications = async () => {
 
 
 const init = async () => {
-  await askForPermissioToReceiveNotifications();
+  await askForPermissionToReceiveNotifications();
   // verifyServiceWorker();
   if (_messaging) {
     _messaging.onMessage((payload) => {
       console.log('Message received. ', payload);
-      // ...
     });
   }
 };
