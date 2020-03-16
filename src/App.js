@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { CircularProgress, Container } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
 import AnalyticsSection from './components/AnalyticsSection';
@@ -10,6 +10,7 @@ import CoronaAlert from './components/CoronaAlert';
 import RemoteConfig from './infra/RemoteConfig';
 import PushService from './services/PushService';
 import Title from './components/Title';
+import Spinner from './components/Spinner';
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <CircularProgress />
+    return <Spinner />
   }
 
   return (
