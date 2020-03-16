@@ -1,6 +1,6 @@
 # Product Engineering with Firebase
 
-### Learn how to easily enrich your product with essential elements, such as:
+### Learn how to easily enrich your WEB product with essential elements, such as:
 * Analytics
 * Performance
 * Push Notifications
