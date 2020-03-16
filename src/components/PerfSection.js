@@ -13,21 +13,22 @@ const sleep = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 };
 
-const traceClickButton = PerfProvider.trace(PerfTraceKeys.PayProcess);
-
 
 const PerfSection = () => {
 
   const [perfLoading, setPerfLoading] = useState(false);
   const classes = useStyles();
-
+  const traceClickButton = PerfProvider.trace(PerfTraceKeys.PayProcess);
+  
   const onClickPayNow = async () => {
-    console.log('on click performace');
+    console.log('on click pay > api call');
     setPerfLoading(true);
+    console.log('performance start trace');
     traceClickButton.start();
     await ShopService.payItems();
     sleep(5000).then(() => {
       traceClickButton.stop();
+      console.log('performance stop trace');
       setPerfLoading(false);
     });
   };
