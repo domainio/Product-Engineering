@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
-  Button, CircularProgress, Fab, Container, Box,
+  Button, CircularProgress,
   Card, CardActionArea, CardMedia, CardContent, Typography, CardActions
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import classnames from 'classnames';
 import PerfProvider from '../infra/PerfProvider';
 import PerfTraceKeys from '../consts/PerfTraceKeys';
 import ShopService from '../services/ShopService';
@@ -64,7 +63,7 @@ const PerfSection = () => {
       </CardActions>
     </Card>
   )
-}
+};
 
 const useStyles = makeStyles(theme => ({
   card: {
