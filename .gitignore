@@ -3,3 +3,4 @@ package-lock.json
 package.json
 yarn.lock
 .idea
+src/consts/FirebaseConfig.js
