@@ -9,6 +9,7 @@ import classnames from 'classnames';
 import AnalyticsService from '../services/AnalyticsService';
 import { AddShoppingCart } from '@material-ui/icons';
 import i18nService from '../services/i18nService';
+import RemoteDBService from '../services/RemoteDBService';
 
 const AnalyticsSection = ({ lang }) => {
 
@@ -21,11 +22,12 @@ const AnalyticsSection = ({ lang }) => {
     AnalyticsService.logEvent(AnalyticsEvents.ClickBuyItNow, { datanoew });
   };
 
-  const onClickAddToCart = () => {
+  const onClickAddToCart = async () => {
     const datanoew = (new Date()).toLocaleString();
     console.log('on click ', AnalyticsEvents.ClickAddToCart, ', params=', datanoew);
     AnalyticsService.logEvent(AnalyticsEvents.ClickAddToCart, { datanoew });
-  }
+    await RemoteDBService.addItemToCart('brush');
+  };
 
   return (
     <Card className={classes.card}>

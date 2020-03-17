@@ -1,7 +1,6 @@
 import AuthProvider from '../infra/AuthProvider';
 const TOKEN_KEY = 'my_auth_token';
 
-
 const signUp = async ({ email, password }) => {
   try {
     const res = await AuthProvider.signUp(email, password);
@@ -35,8 +34,7 @@ const silentLogin = async () => {
       console.log('auth service silent login: no auth token');
       return false;
     }
-    const res = AuthProvider.signInWithToken(token);
-    console.log('auth service silent login success: ', res);
+    console.log('auth service silent login success: ', token);
     return true;
   } catch (err) {
     console.log('auth service silent login error: ', err);
