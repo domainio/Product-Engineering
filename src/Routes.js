@@ -21,7 +21,7 @@ const Routes = () => {
     };
     silentLogin();
   }, [])
-  
+
   if (isLoading) {
     return <Spinner/>
   }

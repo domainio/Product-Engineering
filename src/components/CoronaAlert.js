@@ -2,7 +2,7 @@ import React from 'react';
 import RemoteConfig from '../infra/RemoteConfig';
 import FeatureToggleService from '../services/FeatureToggleService';
 import Alert from '@material-ui/lab/Alert';
-import AnalyticsProvider from '../infra/AnalyticsProvider';
+import AnalyticsService from '../services/AnalyticsService';
 import AnalyticsEvents from '../consts/AnalyticsEvents';
 
 const CoronaAlert = () => {
@@ -11,7 +11,7 @@ const CoronaAlert = () => {
   if (!isToggleOn) {
     return null;
   }
-  AnalyticsProvider.logEvent(AnalyticsEvents.DisplayCoronaAlert)
+  AnalyticsService.logEvent(AnalyticsEvents.DisplayCoronaAlert)
   return (
     <div style={{ backgroundColor: 'red' }}>
       <h2>Corona Alert</h2>

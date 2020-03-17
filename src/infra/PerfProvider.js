@@ -1,5 +1,5 @@
-import firebase from './Firebase';
+import CloudProvider from '../infra/CloudProvider';
 
-const PerfProvider = firebase.performance();
+const PerfProvider = CloudProvider.performance();
 
 export default PerfProvider;

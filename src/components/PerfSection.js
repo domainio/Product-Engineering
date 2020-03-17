@@ -4,7 +4,7 @@ import {
   Card, CardActionArea, CardMedia, CardContent, Typography, CardActions
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import PerfProvider from '../infra/PerfProvider';
+import PerfService from '../services/PerfService';
 import PerfTraceKeys from '../consts/PerfTraceKeys';
 import ShopService from '../services/ShopService';
 
@@ -17,7 +17,7 @@ const PerfSection = () => {
 
   const [perfLoading, setPerfLoading] = useState(false);
   const classes = useStyles();
-  const traceClickButton = PerfProvider.trace(PerfTraceKeys.PayProcess);
+  const traceClickButton = PerfService.trace(PerfTraceKeys.PayProcess);
   
   const onClickPayNow = async () => {
     console.log('on click pay > api call');

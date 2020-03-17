@@ -1,7 +1,7 @@
-import firebase from './Firebase';
+import CloudProvider from '../infra/CloudProvider';
 import _ from 'lodash';
 
-const _remoteConfigAPI = firebase.remoteConfig();
+const _remoteConfigAPI = CloudProvider.remoteConfig();
 let _remoteConfigData = null;
 
 _remoteConfigAPI.settings = {

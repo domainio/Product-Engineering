@@ -1,6 +1,6 @@
 import React from 'react';
 import { Select, MenuItem } from '@material-ui/core';
-import AnalyticsProvider from '../infra/AnalyticsProvider';
+import AnalyticsService from '../services/AnalyticsService';
 import AnalyticsEvents from '../consts/AnalyticsEvents';
 
 const LangSelect = ({ onChange, lang }) => {
@@ -15,7 +15,7 @@ const LangSelect = ({ onChange, lang }) => {
           id="demo-simple-select"
           value={lang}
           onChange={(e) => {
-            AnalyticsProvider.logEvent(AnalyticsEvents.SelectLang, { lang });
+            AnalyticsService.logEvent(AnalyticsEvents.SelectLang, { lang });
             onChange(e.target.value)
           }}
         >

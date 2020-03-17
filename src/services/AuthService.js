@@ -1,12 +1,10 @@
-import Firebase from '../infra/Firebase';
-
-const _auth = Firebase.auth();
+import AuthProvider from '../infra/AuthProvider';
 const TOKEN_KEY = 'my_auth_token';
 
 
 const signUp = async ({ email, password }) => {
   try {
-    const res = await _auth.createUserWithEmailAndPassword(email, password);
+    const res = await AuthProvider.signUp(email, password);
     localStorage.setItem(TOKEN_KEY, res.user.refreshToken);
     console.log('auth service token saved to local storage');
     console.log('auth service sign-up res: ', res);
@@ -19,7 +17,7 @@ const signUp = async ({ email, password }) => {
 
 const signIn = async ({ email, password }) => {
   try {
-    const res = await _auth.signInWithEmailAndPassword(email, password);
+    const res = await AuthProvider.signIn(email, password);
     localStorage.setItem(TOKEN_KEY, res.user.refreshToken);
     console.log('auth service token saved to local storage');
     console.log('auth service sign-in res: ', res);
@@ -37,7 +35,7 @@ const silentLogin = async () => {
       console.log('auth service silent login: no auth token');
       return false;
     }
-    const res = _auth.signInWithCustomToken(token);
+    const res = AuthProvider.signInWithToken(token);
     console.log('auth service silent login success: ', res);
     return true;
   } catch (err) {
@@ -48,7 +46,7 @@ const silentLogin = async () => {
 
 const signOut = async ()=> {
   try {
-    await _auth.signOut();
+    await AuthProvider.signOut();
     console.log('auth service sign out success');
     localStorage.removeItem(TOKEN_KEY);
     console.log('auth service token removed from local storage');
@@ -60,7 +58,7 @@ const signOut = async ()=> {
 const isAuth = () => {
   const token = localStorage.getItem(TOKEN_KEY);
   return !!token;
-}
+};
 
 export default {
   signUp,

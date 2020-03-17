@@ -6,7 +6,7 @@ import {
 import AnalyticsEvents from '../consts/AnalyticsEvents';
 import { makeStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
-import AnalyticsProvider from '../infra/AnalyticsProvider';
+import AnalyticsService from '../services/AnalyticsService';
 import { AddShoppingCart } from '@material-ui/icons';
 import i18nService from '../services/i18nService';
 
@@ -18,13 +18,13 @@ const AnalyticsSection = ({ lang }) => {
   const onClickBuyItNow = () => {
     const datanoew = (new Date()).toLocaleString();
     console.log('on click ', AnalyticsEvents.ClickBuyItNow, ', params=', datanoew);
-    AnalyticsProvider.logEvent(AnalyticsEvents.ClickBuyItNow, { datanoew });
+    AnalyticsService.logEvent(AnalyticsEvents.ClickBuyItNow, { datanoew });
   };
 
   const onClickAddToCart = () => {
     const datanoew = (new Date()).toLocaleString();
     console.log('on click ', AnalyticsEvents.ClickAddToCart, ', params=', datanoew);
-    AnalyticsProvider.logEvent(AnalyticsEvents.ClickAddToCart, { datanoew });
+    AnalyticsService.logEvent(AnalyticsEvents.ClickAddToCart, { datanoew });
   }
 
   return (

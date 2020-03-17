@@ -1,5 +1,5 @@
-import firebase from './Firebase';
+import CloudProvider from '../infra/CloudProvider';
 
-const AnalyticsProvider = firebase.analytics();
+const AnalyticsProvider = CloudProvider.analytics();
 
 export default AnalyticsProvider;
