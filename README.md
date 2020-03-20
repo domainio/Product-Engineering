@@ -11,6 +11,8 @@
 * Storage
 and more...
 
+Checkout the [wiki **Feature Suit Guideline**](https://github.com/domainio/Product-Engineering/wiki/Feature-Suit-Guideline)
+
 ## How to start (web example)
 1. git clone this repo
 2. Create a **Firebase** project
